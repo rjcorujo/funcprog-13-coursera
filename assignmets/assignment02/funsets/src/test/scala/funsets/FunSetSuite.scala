@@ -77,6 +77,7 @@ class FunSetSuite extends FunSuite {
     val s1 = singletonSet(1)
     val s2 = singletonSet(2)
     val s3 = singletonSet(3)
+    val sMulti = (x: Int) => x == 1 || x == 3 || x == 4 || x == 5 || x == 7 || x == 1000
     val set1To9 = (x: Int) => x > 0 && x < 10
     val set5To15 = (x: Int) => x > 4 && x < 16
   }
@@ -132,5 +133,35 @@ class FunSetSuite extends FunSuite {
       assert(!contains(interSet,14))
       assert(!contains(interSet,15))
     }
+  }
+  
+  test("for all") {
+	  new TestSets {
+		  assert(forall(s1,s1))
+		  assert(forall(s1,(x: Int) => x < 5))
+		  assert(!forall((x: Int) => x < 1000,(x: Int) => x < 5), "Not all elements makes the predicate true")
+		  assert(forall((x: Int) => x < 3,(x: Int) => x < 5))
+		  assert(!forall(sMulti, (x: Int) =>  x < 5 ), "Not all elements are not strictly less than 5")
+	  }
+  }
+  
+  test("exists") {
+	  new TestSets {
+		  assert(exists(s1,(x: Int) => x < 5), "Singleton includes < than 5")
+		  assert(!exists(s1,(x: Int) => x > 5), "Singleton does not includes > than 5")
+		  assert(exists(s1,(x: Int) => x == 1), "Singleton includes 1")
+		  assert(!exists(s1,(x: Int) => x != 1), "Singleton excludes 1?")
+	  }
+  }
+  
+  test("map") {
+	  new TestSets {
+	    val mappedS1 = map(s1, (x :Int) => x +1)
+	    val mappedS1Times2 = map(s1, (x :Int) => x*2)
+	    assert(!contains(mappedS1,1))
+	    assert(contains(mappedS1,2))
+	    assert(!contains(mappedS1Times2,1))
+	    assert(contains(mappedS1Times2,2))
+	  }
   }
 }
