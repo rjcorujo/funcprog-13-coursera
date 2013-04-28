@@ -13,10 +13,10 @@ object exercise {
   
   
   val test = new Cons[Int](1,
-  	new Cons[Int](2, new Nil[Int]))           //> test  : week04.Cons[Int] = week04.Cons@418c56d
+  	new Cons[Int](2, new Nil[Int]))           //> test  : week04.Cons[Int] = week04.Cons@2dec8909
   	
   test.head                                       //> res0: Int = 1
-  test.tail                                       //> res1: week04.List[Int] = week04.Cons@76497934
+  test.tail                                       //> res1: week04.List[Int] = week04.Cons@418c56d
   	
   	nth[Int](0,new Nil[Int]())                //> java.lang.IndexOutOfBoundsException
                                                   //| 	at week04.exercise$$anonfun$main$1.nth$1(week04.exercise.scala:9)
@@ -31,4 +31,6 @@ object exercise {
                                                   //| 	at week04.exercise$.main(week04.exercise.scala:5)
                                                   //| 	at week04.exercise.main(week04.exercise.scala)
   	nth[Int](2,test)
+  	
+  	
 }
