@@ -26,5 +26,5 @@ object week2 {
 	//generalization for sum
 	mapReduce(identity,(a,b) => a + b,0)(1,5) //> res3: Int = 15
 	mapReduce(identity,(a,b) => a*b, 1)(1,5)  //> res4: Int = 120
- 		
+
 }

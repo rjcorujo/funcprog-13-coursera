@@ -35,7 +35,7 @@ object session {
   sqrt(0.1e-20)                                   //> res5: Double = 3.1633394544890125E-11
   sqrt(1e20)                                      //> res6: Double = 1.0000021484861237E10
   sqrt(1e50)                                      //> res7: Double = 1.0000003807575104E25
- 
+
   
   
 }
