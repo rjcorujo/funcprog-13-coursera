@@ -31,7 +31,6 @@ class AnagramsSuite extends FunSuite {
   }
 
 
-
   test("word anagrams: married") {
     assert(wordAnagrams("married").toSet === Set("married", "admirer"))
   }
